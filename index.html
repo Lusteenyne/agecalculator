@@ -15,23 +15,35 @@
     
         <div class="mt-4 text-success bg-white" id="output"></div>
     </main>
+    <p id="sort"></p>
+    <p id="min"></p>
+    <p id="max"></p>
+    <p id="median"></p>
+    <p id="ave"></p>
+    <p id="ran"></p>
+    <p id="minave"></p>
+    <p id="maxave"></p>
 </body>
 </html>
 <script>
 
     const ages = [19, 22, 19, 24, 20, 25, 26, 24, 25, 24];
+    
 
 
     function findAges() {
         const sortAges = [...ages].sort((a, b) => a - b)
         console.log(sortAges);
+       document.getElementById("sort").innerHTML = sortAges
 
         //find min and max
         const minAges = sortAges[0];
         console.log(minAges);
+        document.getElementById("min").innerHTML = minAges
         
         const maxAges = sortAges[sortAges.length - 1];
         console.log(maxAges);
+        document.getElementById("max").innerHTML = maxAges
         
 
 
@@ -46,23 +58,28 @@
      }
 
      console.log(mid);
+     document.getElementById("median").innerHTML = mid
 
      //find average 
      const total = sortAges.reduce((sum, age) => sum + age, 0);
      const average = total / sortAges.length;
      console.log(average);
+     document.getElementById("ave").innerHTML = average
 
      //find range  
      const range = maxAges - minAges;
      console.log(range);
+     document.getElementById("ran").innerHTML = range
 
      //compare the value of (min- average) and (max- average)
 
      const minAverage = Math.abs(minAges - average);
      console.log(minAverage);
+     document.getElementById("minave").innerHTML = minAverage
 
      const maxAverage = Math.abs(maxAges - average);
      console.log(maxAverage);
+     document.getElementById("maxave").innerHTML = maxAverage
      
      
 
