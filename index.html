@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap/bootstrap-5.3.3-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap/bootstrap-5.3.3-dist/js/bootstrap.bundle.js">
+    <title>Document</title>
+</head>
+<body>
+     
+    <main class="w-25 mx-auto shadow rounded p-3 bg-primary">
+        <h1>Age calculator</h1>
+        <button class="btn btn-danger mt-4" onclick="findAges()">Find Ages</button>
+    
+        <div class="mt-4 text-success bg-white" id="output"></div>
+    </main>
+</body>
+</html>
+<script>
+
+    const ages = [19, 22, 19, 24, 20, 25, 26, 24, 25, 24];
+
+
+    function findAges() {
+        const sortAges = [...ages].sort((a, b) => a - b)
+        console.log(sortAges);
+
+        //find min and max
+        const minAges = sortAges[0];
+        console.log(minAges);
+        
+        const maxAges = sortAges[sortAges.length - 1];
+        console.log(maxAges);
+        
+
+
+        //find median
+        let median;
+        const mid = Math.floor(sortAges.length / 2);
+
+        if (sortAges.length % 2 === 0){
+            median = (sortAges[mid - 1] + sortAges[mid]) / 2;
+     } else {
+        median = sortAges[mid];
+     }
+
+     console.log(mid);
+
+     //find average 
+     const total = sortAges.reduce((sum, age) => sum + age, 0);
+     const average = total / sortAges.length;
+     console.log(average);
+
+     //find range  
+     const range = maxAges - minAges;
+     console.log(range);
+
+     //compare the value of (min- average) and (max- average)
+
+     const minAverage = Math.abs(minAges - average);
+     console.log(minAverage);
+
+     const maxAverage = Math.abs(maxAges - average);
+     console.log(maxAverage);
+     
+     
+
+
+     
+     
+     
+        
+    }
+</script>
